@@ -43,7 +43,7 @@ npm start
 - **Login Credentials**:
 kiran.gosavi@techprimelab.com
 
-mypass321
+Password - mypass321
 
 ### Technologies Used
 - Frontend: React.js
