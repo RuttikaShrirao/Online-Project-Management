@@ -70,12 +70,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function Project_List() {
   const [sort, setSort] = React.useState("");
   const [project_list, setProject_list] = React.useState([]);
-  const [record, setRecord] = React.useState([]);
+  const [record, setRecord] = React.useState(false);
 
-  const handleChange = (event) => {
-    setSort(event.target.value);
-    setRecord(project_list.filter(f =>f.priority==(event.target.value)))
-  };
 
   const handleProjectStatusChange = (project_id, pstatus) => {
     fetch(`http://localhost:7000/api/update-project-status/${project_id}`, {
@@ -88,6 +84,7 @@ function Project_List() {
         const updated_proj_lst = project_list.map((el) =>
           el._id === project_id ? { ...el, status: pstatus } : el
         );
+        console.log(updated_proj_lst)
         setProject_list(updated_proj_lst);
       });
   };
@@ -97,15 +94,23 @@ function Project_List() {
       .then((res) => res.json())
       .then((data) => {
         setProject_list(data.data);
-        setRecord(data.data)
+        // setRecord(data.data)
       });
-  }, []);
+  }, [record]);
+
+  const handleChange = (event) => {
+    setSort(event.target.value);
+    setProject_list(project_list.filter(f =>f.priority==(event.target.value)))
+  };
 
   const filterHandler =(event)=>{
-    setRecord(project_list.filter(f => f.project_theme.toLowerCase().includes(event.target.value)))
+    if((event.target.value).length==0){
+      setRecord(project_list)
+            }
+            else{
+              setProject_list(project_list.filter(f => f.project_theme.toLowerCase().includes(event.target.value)) )
+            }
   }
-
-
   return (
     <DashboardNavWrapper>
       <div className="list-table flex justify-center absolute top-28 px-7 ">
@@ -161,7 +166,7 @@ function Project_List() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {record.map((row) => (
+                {project_list.map((row) => (
                   <TableRow
                     key={row._id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -252,7 +257,7 @@ function Project_List() {
          
 
         </div>
-        {record.map((item) => (
+        {project_list.map((item) => (
           <Box key={item._id} className="card-list my-3">
             <Box className=" flex flex-col ">
               <span className=" flex mb-3 ">

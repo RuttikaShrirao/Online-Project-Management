@@ -164,7 +164,7 @@ function CreateProject() {
               <p>Start Date as per Plan</p>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
-                  name="start_date"
+                  // name="start_date"
                   // value={inputFieldstart_date}
                   onChange={handleChange}
                 />
