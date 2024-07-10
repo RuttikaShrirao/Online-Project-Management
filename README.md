@@ -23,7 +23,7 @@ Welcome to the Online Project Management system. This application helps manage p
 ### Getting Started
 
 - **Installation**:
- git clone https://github.com/your-username/online-project-management.git
+ git clone https://github.com/RuttikaShrirao/Online-Project-Management.git
 
 - **Navigate to the project directory**:
  cd online-project-management
@@ -41,7 +41,8 @@ npm start
 - **Open your browser and go to**: http://localhost:7000.
 
 - **Login Credentials**:
-kiran.gosavi@techprimelab.com
+
+Email - kiran.gosavi@techprimelab.com
 
 Password - mypass321
 
