@@ -42,6 +42,7 @@ npm start
 
 - **Login Credentials**:
 kiran.gosavi@techprimelab.com
+
 mypass321
 
 ### Technologies Used
