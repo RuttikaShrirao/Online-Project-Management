@@ -40,6 +40,10 @@ npm start
 
 - **Open your browser and go to**: http://localhost:7000.
 
+- **Login Credentials**:
+kiran.gosavi@techprimelab.com
+mypass321
+
 ### Technologies Used
 - Frontend: React.js
 - Backend: Node.js, Express.js
