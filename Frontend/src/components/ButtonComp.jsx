@@ -1,10 +1,10 @@
 import React from 'react'
 import Button from '@mui/material/Button';
+// import "../App.css";
 
 function ButtonComp(props) {
-  // function ButtonComp({label,variant,...}) {
   return (
-  <Button sx={{marginRight:'.5rem',borderRadius:"20px"}} variant={props.variant} size="small" {...props} >
+  <Button className='card-btn' style={{borderRadius:"18px", marginRight:'.5rem'}} variant={props.variant} size="small" {...props} >
    {props.label}
   </Button>
   )

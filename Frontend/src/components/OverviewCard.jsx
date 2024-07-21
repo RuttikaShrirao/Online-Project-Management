@@ -3,11 +3,12 @@ import React from "react";
 function OverviewCard({ cardTitle, cardValue }) {
   return (
     <div
-      className="h-20 w-48 rounded-md p-2 m-4"
-      style={{ backgroundColor: "white", borderLeft: "8px solid #6edaf2" }}
+      className="overviewcard  p-2 m-2"
+      style={{ borderLeft: "8px solid #0CC9E8" }}
     >
-      <h5>{cardTitle}</h5>
-      <h1 className="text-4xl font-bold">{cardValue}</h1>
+      <p className="total-projects">{cardTitle}</p>
+      <h1 className="proj-num">{cardValue}</h1>
+
     </div>
   );
 }

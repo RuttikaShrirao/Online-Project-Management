@@ -10,8 +10,8 @@ function SelectInp({ label, placeholder, item, inputField, setInputField }) {
   };
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <p>{label}</p>
+    <Box sx={{ minWidth: 120, paddingTop: "1rem" }}>
+      <p className="create-sel-label">{label}</p>
       <FormControl fullWidth>
         <Select
           displayEmpty

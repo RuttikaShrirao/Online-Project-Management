@@ -1,58 +1,11 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
+/* LOgin */
 .logo-bg-img{
   background-image: url('./assets/login-bg-1.svg');
-  height: 100vh;
+  height: 62vh;
   display: flex;
   background-repeat: no-repeat;
-  /* background-size: cover; */
+  background-size: cover;
   justify-content: center;
- /* width:"100vw" */
- /* align-items: center; */
-
-   /* backgroundAttachment:"fixed",
-  backgroundPosition:"center", */
 }
 
 .logo{
@@ -62,45 +15,123 @@ height: 3rem;
 .logo-header{
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 10vh;
   color: white;
-  /* line-height: 20px; */
 }
 
 .login-form{
-  background-color: rgb(255, 255, 255);
-  padding: 2rem;
-  /* height: 60vh; */
-  width: 23rem;
-  border-radius: 1rem;
-  /* position: absolute;
-top: 35%;
-left: 35%; */
-/* transform: translate(-50%,50%); */
+  height: 422px;
+  width: 410px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 7px 18px 0 rgba(2,118,179,0.13);
+  padding: 0rem 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center; 
+}
+
+.login-to-get-started{
+  height: 27px;
+  width: 176px;
+  color: #3F3F3F;
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 27px;
+  text-align: center;
+}
+
+.email{
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.password{
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+}
+
+.rectangle{
+  box-sizing: border-box;
+  height: 48px;
+  width: 337px;
+  padding-left: 1rem;
+  border-radius: 6px;
+}
+
+.btn{
+  height: 36px;
+  width: 169px;
+  border-radius: 18px;
+  background-color: #035FB2;
+  color: #FFFFFF;
+  font-family: "Nunito Sans";
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 22px;
 
 }
 
-.login-form input{
-  padding: .5rem;
-  /* border: 1px solid black; */
-  border-radius: 5px;
-  width: -webkit-fill-available;
+.hide-password{
+  height: 30px;
+  width: 24px;
+  position: absolute;
+  right: 3rem;
+  bottom: 9rem;
 }
 
-.login-button{
-  background-color: rgb(96, 140, 217);
-  color: white;
-  padding: .3rem 4.5rem;
-  border-radius: 20px;
-  margin-top: .8rem;
+.forgot-password{
+  height: 14px;
+  color: #025AAB;
+  font-family: "Work Sans";
+  font-size: 13px;
+  letter-spacing: 0;
+  line-height: 20px;
+  text-align: end;
+}
+.invalid-credentials{
+  height: 19px;
+  width: 113px;
+  color: #FF3838;
+  font-family: "Nunito Sans";
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 19px;
+  text-align: center;
+  position: absolute;
+}
+.invalid-desk{
+  display: none;
+}
 
+.invalid-mob{
+  display: block;
+}
+
+.currnt-page-text{
+  height: 27px;
+  width: 133px;
+  color: #FFFFFF;
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 27px;
+}
+
+/* ............................................. */
+.main-dashboard{
+  border: 9px solid red
 }
 
 .sidebar{
   background-color: white;
-  /* display: block; */
-  /* position: absolute; */
+  height: 768px;
+  width: 58px;
 }
 
 .mob_nav{
@@ -108,28 +139,94 @@ left: 35%; */
 }
 
 .mob-logout{
-  display: none;
+  height: 20px;
+  width: 20px;
 }
 
 .topbar{
   background-image: url('./assets/Header-bg.svg');
-  height: 100vh;
-  width: 100vw;
+  height: 150px;
+  width: 1308px;
   background-repeat: no-repeat;
   display: flex;
 }
 
+/* dashboard */
+
+.overviewcard{
+  height: 5rem;
+  width: 13.6rem;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 21px 0 rgba(173,182,217,0.27);
+}
+
+.total-projects{
+  height: 20px;
+  width: 110px;
+  color: #474D52;
+  font-family: "Nunito Sans";
+  font-size: 15px;
+  letter-spacing: 0;
+  line-height: 20px;
+}
+
+.proj-num{
+  height: 54px;
+  width: 102px;
+  color: #474D52;
+  font-family: "Nunito Sans";
+  font-size: 40px;
+  font-weight: bold;
+  letter-spacing: 0;
+  line-height: 54px;
+
+}
+
+.department-wise-to{
+   height: 27px;
+  width: 491px;
+  color: #010202;
+  font-family: "Nunito Sans";
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: 27px;
+}
+
+.graph-box{
+  height: 387px;
+  width: 635px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0 7px 18px 0 rgba(2,118,179,0.13);
+}
+/* .............................. */
+.create-proj{
+  display:flex;
+   position: absolute;
+top: 7rem;
+}
+
+.proj-status{
+  padding: 1rem;
+  padding-right: 18.5rem;
+float:right
+}
+
+
 .white-box{
   background-color: white;
   border-radius : 2rem;
-  width: 92vw;
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center; */
+  width: 90vw;
+  padding: 1rem ;
+  background-color: #FFFFFF;
+  box-shadow: 0 7px 18px 0 rgba(2,118,179,0.13);
 }
 
 .proj-theme{
   width: 60%;
+  border: 1px solid #979797;
+  border-radius: 6px;
 }
 
 .white-box .proj-save-btn{
@@ -139,11 +236,16 @@ left: 35%; */
 .white-box .mob-proj-save-btn{
   display: none;
     }
-
+    .css-1ex1afd-MuiTableCell-root{
+      padding: 2px;
+    }
     .card-list{
-      background-color: white;
-    padding: 2rem;
-    border-radius: .5rem
+      /* height: 257px;
+      width: 328px; */
+      border-radius: 10px;
+      background-color: #FFFFFF;
+      box-shadow: 0 7px 18px 0 rgba(2,118,179,0.13);
+    padding: 1rem;
     }
 
     .card-list h1{
@@ -158,14 +260,55 @@ left: 35%; */
       display: none;
     }
 
+    .card-btn{
+      padding: 1rem;
+      background-color: #025AAB;
+    }
+
     .list-table{
       display: block;
     }
 
+    .create-sel-label{
+    color:#767676;
+    font-family:"Nunito Sans"
+    }
+
+    @media (max-width:1024px) {
+.tablet-projList{
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+      .horizontal-overview{
+        margin: 4px, 4px;
+        padding: 4px;
+        width: 77%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+      }
+    }
+
+    @media (min-width:768px) {
+     .create-proj{
+      height: 100%;
+     }
+
+   
+    }
+   
+    @media (max-width:768px) {
+      .proj-status{
+     padding-right: 1rem;
+      }
+      .horizontal-overview{
+        width: 56%;
+      }
+     }    
+
 @media (max-width:600px) {
-  .main-dashboard{
-    flex-direction: column;
-  }
   .sidebar{
     display: none;
   }
@@ -174,23 +317,22 @@ left: 35%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* padding: 3rem 0rem; */
   }
-  
-  .mob_nav{
-    display: block;
-    background-color: white;
-    padding: 1rem;
-  }
+
+
   .dash_logo{
+    height: 53px;
+  width: 60px;
     display: none;
   }
   .mob-logout{
-    display: block;
-    position: absolute;
-    left: 172%;
+    height: 20px;
+    width: 20px;
   }
  .white-box .mob-proj-save-btn{
 display: block;
+margin-bottom: 3rem;
   }
   .white-box .proj-save-btn{
     border-radius: 20px;
@@ -198,11 +340,82 @@ display: block;
   }
   .proj-theme{
     width: 100%;
+    border: 1px solid #979797;
+  border-radius: 6px;
   }
+
+ 
   .card{
     display: block;
   }
   .list-table{
     display: none;
+  }
+  .mob_nav {
+    width: 100vw;
+    display: block;
+    background-color: white;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0rem;
+}
+}
+
+
+@media (max-width:425px) {
+  .login-form {
+    position: absolute;
+    top: 22rem;
+  align-items: start;
+  }
+
+  .btn{
+    width: -webkit-fill-available;
+  }
+  .logo {
+    height: 4rem;
+}
+.logo-bg-img {
+  width: -webkit-fill-available;
+}
+.invalid-desk{
+  display: block;
+}
+.invalid-mob{
+  display: none;
+}
+
+/* dashboard */
+
+ .main-dashboard{
+    flex-direction: column;
+    height: 100vh;
+  }
+
+.horizontal-overview{
+  margin: 4px, 4px;
+  padding: 4px;
+  /* width:64%; */
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.overviewcard{
+  height: 75px;
+  width: 110px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  box-shadow: 0 7px 18px 0 rgba(2,118,179,0.13);
+}
+}
+
+@media (min-width:425px) {
+.logo-header {
+  position: absolute;
+  top: 10vh;
+}
+.invalid-credentials{
+  bottom: 2rem;
   }
 }

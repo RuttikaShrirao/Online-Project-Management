@@ -13,14 +13,14 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import usePagination from '@mui/material/usePagination';
+import usePagination from "@mui/material/usePagination";
 // import { styled } from '@mui/material/styles';
 
-const List = styled('ul')({
-  listStyle: 'none',
+const List = styled("ul")({
+  listStyle: "none",
   padding: 0,
   margin: 0,
-  display: 'flex',
+  display: "flex",
 });
 
 const Search = styled("div")(({ theme }) => ({
@@ -72,21 +72,22 @@ function Project_List() {
   const [project_list, setProject_list] = React.useState([]);
   const [record, setRecord] = React.useState(false);
 
-
   const handleProjectStatusChange = (project_id, pstatus) => {
-    fetch(`http://localhost:7000/api/update-project-status/${project_id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: pstatus }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const updated_proj_lst = project_list.map((el) =>
-          el._id === project_id ? { ...el, status: pstatus } : el
-        );
-        console.log(updated_proj_lst)
-        setProject_list(updated_proj_lst);
-      });
+    if (pstatus == "closed") {
+    } else {
+      fetch(`http://localhost:7000/api/update-project-status/${project_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: pstatus }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          const updated_proj_lst = project_list.map((el) =>
+            el._id === project_id ? { ...el, status: pstatus } : el
+          );
+          setProject_list(updated_proj_lst);
+        });
+    }
   };
 
   useEffect(() => {
@@ -100,26 +101,32 @@ function Project_List() {
 
   const handleChange = (event) => {
     setSort(event.target.value);
-    setProject_list(project_list.filter(f =>f.priority==(event.target.value)))
+    setProject_list(
+      project_list.filter((f) => f.priority == event.target.value)
+    );
   };
 
-  const filterHandler =(event)=>{
-    if((event.target.value).length==0){
-      setRecord(project_list)
-            }
-            else{
-              setProject_list(project_list.filter(f => f.project_theme.toLowerCase().includes(event.target.value)) )
-            }
-  }
+  const filterHandler = (event) => {
+    if (event.target.value.length == 0) {
+      setRecord(project_list);
+    } else {
+      setProject_list(
+        project_list.filter(
+          (f) => f.project_theme.toLowerCase().includes(event.target.value)
+          // f.status.toLowerCase().includes(event.target.value)
+        )
+      );
+    }
+  };
   return (
     <DashboardNavWrapper>
-      <div className="list-table flex justify-center absolute top-28 px-7 ">
+      <div className="list-table flex justify-center absolute top-32 px-7 ">
         <div className="white-box p-8">
-          <div className="flex justify-between">
-            <Search onChange={filterHandler}
+          <div className="flex justify-between px-4">
+            <Search
+              onChange={filterHandler}
               style={{ borderBottom: "1px solid black", display: "flex" }}
             >
-       
               <SearchIconWrapper>
                 <SearchIcon />
               </SearchIconWrapper>
@@ -140,29 +147,47 @@ function Project_List() {
                   <MenuItem disabled value="">
                     <em>Priority</em>
                   </MenuItem>
-                  <MenuItem value={'High'}>High</MenuItem>
-                  <MenuItem value={'Medium'} >Medium</MenuItem>
-                  <MenuItem value={'Low'} >Low</MenuItem>
+                  <MenuItem value={"High"}>High</MenuItem>
+                  <MenuItem value={"Medium"}>Medium</MenuItem>
+                  <MenuItem value={"Low"}>Low</MenuItem>
                 </Select>
               </Box>
             </div>
           </div>
-          <Box sx={{ paddingTop: 2 }}>
+          <Box className="tablet-projList">
             <Table
               sx={{ minWidth: 650, paddingTop: 30 }}
               aria-label="simple table"
             >
               <TableHead>
                 <TableRow>
-                  <TableCell><b>project Name</b></TableCell>
-                  <TableCell align="left"><b>Reason</b></TableCell>
-                  <TableCell align="left"><b>Type</b></TableCell>
-                  <TableCell align="left"><b>Division</b></TableCell>
-                  <TableCell align="left"><b>Category</b></TableCell>
-                  <TableCell align="left"><b>priority</b></TableCell>
-                  <TableCell align="left"><b>Dept</b></TableCell>
-                  <TableCell align="left"><b>Location</b></TableCell>
-                  <TableCell align="left"><b>Status</b></TableCell>
+                  <TableCell>
+                    <b>project Name</b>
+                  </TableCell>
+                  <TableCell align="left">
+                    <b>Reason</b>
+                  </TableCell>
+                  <TableCell align="left">
+                    <b>Type</b>
+                  </TableCell>
+                  <TableCell align="left">
+                    <b>Division</b>
+                  </TableCell>
+                  <TableCell align="left">
+                    <b>Category</b>
+                  </TableCell>
+                  <TableCell align="left">
+                    <b>priority</b>
+                  </TableCell>
+                  <TableCell align="left">
+                    <b>Dept</b>
+                  </TableCell>
+                  <TableCell align="left">
+                    <b>Location</b>
+                  </TableCell>
+                  <TableCell align="left">
+                    <b>Status</b>
+                  </TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -185,48 +210,52 @@ function Project_List() {
                     <TableCell align="left">
                       <b>{row.status}</b>
                     </TableCell>
-                    <TableCell className="flex">
+                    <TableCell align="left">
                       {/* <ButtonComp label="Register" variant= {!!row.status && (row.status.toLowerCase() == "register") ? "contained": "outlined" }/>
           <ButtonComp label="Canceled" variant={!!row.status && (row.status.toLowerCase() == "canceled") ? "contained": "outlined" }/>
           <ButtonComp label="Closed" variant={!!row.status && (row.status.toLowerCase() == "closed") ? "contained": "outlined" }/> */}
                       <div className="flex">
-                      <ButtonComp
-                        label="Start"
-                        variant="contained"
-                        onClick={() =>
-                          handleProjectStatusChange(row._id, "Running")
-                        }
-                      />
-                      <ButtonComp
-                        label="Canceled"
-                        variant="outlined"
-                        onClick={() =>
-                          handleProjectStatusChange(row._id, "Canceled")
-                        }
-                      />
-                      <ButtonComp
-                        label="Closed"
-                        variant="outlined"
-                        onClick={() =>
-                          handleProjectStatusChange(row._id, "closed")
-                        }
-                      />
+                        <ButtonComp
+                          label="Start"
+                          variant="contained"
+                          onClick={() =>
+                            handleProjectStatusChange(row._id, "Running")
+                          }
+                        />
+                        <ButtonComp
+                          label="Canceled"
+                          variant="outlined"
+                          onClick={() =>
+                            handleProjectStatusChange(row._id, "Canceled")
+                          }
+                        />
+                        <ButtonComp
+                          label="Closed"
+                          variant="outlined"
+                          onClick={() =>
+                            handleProjectStatusChange(row._id, "closed")
+                          }
+                        />
                       </div>
                     </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
             </Table>
-
           </Box>
         </div>
       </div>
 
       <div className="card flex flex-col col-flex justify-center absolute top-32 px-7 ">
-        <div className=" p-8">
+        <div className=" pt-12 pb-2">
           <div className="flex justify-between">
-            <Search onChange={filterHandler}
-              style={{ borderBottom: "1px solid black", display: "flex" }}
+            <Search
+              onChange={filterHandler}
+              style={{
+                borderBottom: "1px solid black",
+                display: "flex",
+                marginRight: "1rem",
+              }}
             >
               <SearchIconWrapper>
                 <SearchIcon />
@@ -238,24 +267,21 @@ function Project_List() {
             </Search>
 
             <Box>
-                <Select
-                  displayEmpty
-                  value={sort}
-                  onChange={handleChange}
-                  inputProps={{ "aria-label": "Without label" }}
-                >
-                  <MenuItem disabled value="">
-                    <em>Priority</em>
-                  </MenuItem>
-                  <MenuItem value={'High'}>High</MenuItem>
-                  <MenuItem value={'Medium'} >Medium</MenuItem>
-                  <MenuItem value={'Low'} >Low</MenuItem>
-                </Select>
-              </Box>
+              <Select
+                displayEmpty
+                value={sort}
+                onChange={handleChange}
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem disabled value="">
+                  <em>Priority</em>
+                </MenuItem>
+                <MenuItem value={"High"}>High</MenuItem>
+                <MenuItem value={"Medium"}>Medium</MenuItem>
+                <MenuItem value={"Low"}>Low</MenuItem>
+              </Select>
+            </Box>
           </div>
-
-         
-
         </div>
         {project_list.map((item) => (
           <Box key={item._id} className="card-list my-3">
@@ -269,11 +295,10 @@ function Project_List() {
               </span>
 
               <span className=" flex mr-2.5">
-                  <p>Reason:</p>
-                  {item.reason.slice(3)}
-                </span>
+                <p>Reason:</p>
+                {item.reason.slice(3)}
+              </span>
               <div className="flex">
-             
                 <span className=" flex mr-2.5">
                   <p>Type:</p>
                   {item.type}
@@ -304,7 +329,7 @@ function Project_List() {
                 <p>Location:</p>
                 {item.location}
               </span>
-              <span className=" flex ">
+              <span className=" flex pb-4">
                 <p>Priority:</p>
                 {item.priority}
               </span>

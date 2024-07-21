@@ -85,7 +85,6 @@ function CreateProject() {
         })
           .then((res) => res.json())
           .then((data) => {
-  
             if (data.status == 200) {
               localStorage.setItem("token", data.token);
               navigate("/project_list");
@@ -102,8 +101,8 @@ function CreateProject() {
 
   return (
     <DashboardNavWrapper>
-      <div className="flex absolute top-28 px-5 ">
-        <div className="white-box p-12">
+      <div className="create-proj px-5">
+        <div className="white-box">
           <Box
             sx={{
               display: "flex",
@@ -160,10 +159,14 @@ function CreateProject() {
                 { text: "Quality C" },
               ]}
             />
-            <Box className="pt-2">
-              <p>Start Date as per Plan</p>
+            <Box className="pt-4">
+              <p className="create-sel-label">Start Date as per Plan</p>
+              {/* <input placeholder="d.Month,yy"  type="date"/> */}
+
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
+                  style={{ width: "500px" }}
+                  //  wrapperClassName="datepicker"
                   // name="start_date"
                   // value={inputFieldstart_date}
                   onChange={handleChange}
@@ -190,7 +193,7 @@ function CreateProject() {
               item={[{ text: "High" }, { text: "Medium" }, { text: "Low" }]}
             />
             <Box sx={{ minWidth: 120, pt: 2 }}>
-              <p>End Date as per Plan</p>
+              <p className="create-sel-label">End Date as per Plan</p>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   value={end_date}
@@ -230,7 +233,7 @@ function CreateProject() {
               item={[{ text: "Pune" }, { text: "Mumbai" }, { text: "Nagpure" }]}
             />
           </div>
-          <p className="pt-6 px-48 float-right">
+          <p className="proj-status ">
             Status: <b>Registered</b>
           </p>
 

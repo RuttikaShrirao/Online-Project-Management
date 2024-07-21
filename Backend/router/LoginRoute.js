@@ -26,12 +26,13 @@ LoginRoute.post("/", async (req, res) => {
           );
           res.status(200).send({
             status: 200,
-            msg: "you are logged in",
+            Success: 'true',
+            msg: "Valid User",
             token: token,
           });
         }
       } else {
-        reponseFormat(res, (status_code = 400), (msg = "Invalid Credential"));
+        reponseFormat(res, (status_code = 400), Success='false', (msg = "Invalid User"));
       }
     }
   } catch (error) {

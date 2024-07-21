@@ -17,10 +17,12 @@ dashboardRoute.get('/',async(req, res) => {
                         }, 
                         { $group : { _id : "$department", count:{$sum:1} } }
                         ])
+                        console.log(department_wise_closed_proj_raw,"department_wise_closed_proj_raw")
     department_wise_closed_proj = {}
     department_wise_closed_proj_raw.map((row)=>{
         department_wise_closed_proj[row["_id"]] = row["count"]
     })
+    console.log(department_wise_closed_proj,"OOO")
 
     // get department wise total project
   department_wise_total_proj_raw = await project.aggregate([
@@ -30,6 +32,7 @@ department_wise_total_proj = {}
 department_wise_total_proj_raw.map((row)=>{
 department_wise_total_proj[row["_id"]] = row["count"]
 })
+console.log(department_wise_total_proj,"pppp")
 
 //  get unique dapratment name
 const departments_list =  await project.distinct("department")

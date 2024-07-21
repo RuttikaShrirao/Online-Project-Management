@@ -6,7 +6,8 @@ import create_project_active from "../assets/create-project-active.svg";
 import Project_list_active from "../assets/Project-list-active.svg";
 import list_logo from "../assets/Project-list-unactive.svg";
 import create_project from "../assets/create-project-unactive.svg";
-import Logout from "../assets/Logout.svg";
+import Logout from "../assets/mob_Logout.svg";
+import desk_Logout from "../assets/Logout.svg";
 import Logo from "../assets/Logo.svg";
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +27,7 @@ function DashboardNavWrapper(props) {
 
   return (
     <div className="main-dashboard flex ">
-      <div className="sidebar w-16 h-dvh flex justify-center items-center">
+      <div className="sidebar flex justify-center items-center">
         <div className="h-48 flex flex-col justify-around">
           <Link to="/dashboard">
             <img
@@ -59,28 +60,25 @@ function DashboardNavWrapper(props) {
               alt="Image"
             />
           </Link>
+
+          <img onClick={logoutHandler} src={desk_Logout} alt="Image" />
         </div>
-        <img
-          onClick={logoutHandler}
-          src={Logout}
-          className="absolute bottom-6"
-          alt="Image"
-        />
       </div>
       <div className="topbar">
-        {/* <div className='header'></div> */}
-        <div className=" flex justify-between p-9 absolute top-6 w-6/12">
-          <h1 className="text-white text-lg">
+        <div className=" flex justify-between p-9 ">
+          <h1 className="currnt-page-text ">
             {" "}
             {page_title[window.location.pathname]}
           </h1>
+
+          <img src={Logo} alt="logo" className="h-12 dash_logo" />
+
           <img
             onClick={logoutHandler}
             src={Logout}
             className="mob-logout"
             alt="Image"
           />
-          <img src={Logo} alt="logo" className="h-10 dash_logo" />
         </div>
         {props.children}
       </div>

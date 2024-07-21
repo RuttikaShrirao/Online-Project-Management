@@ -49,66 +49,58 @@ function Dashboard() {
         setCard(data.data);
       });
   }, []);
-  console.log(card,"----")
 
   return (
     <DashboardNavWrapper>
-      <div className="flex justify-center absolute top-28 px-14 shrink">
-        <OverviewCard
-          cardTitle="Total Project"
-          cardValue={card.total_project_count}
-        />
-        <OverviewCard
-          cardTitle="closed"
-          cardValue={card.project_status_count.closed}
-        />
-        <OverviewCard
-          cardTitle="Running"
-          cardValue={card.project_status_count.Running}
-        />
-        <OverviewCard
-          cardTitle="Cancelled"
-          cardValue={card.project_status_count.Canceled}
-        />
-      </div>
-      <p
-        className="font-medium"
-        style={{ position: "absolute", top: "37%", left: "8%" }}
-      >
-        Department wise- Total & Closed
-      </p>
-      <div
-        className="p-6"
-        style={{
-          width: "40rem",
-          height: "50%",
-          backgroundColor: "white",
-          position: "absolute",
-          bottom: "5%",
-          left: "9%",
-        }}
-      >
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            width={150}
-            height={130}
-            data={card.deparmentwise_project_status}
-            margin={{
-              top: 35,
-              right: 30
-            }}
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="total_projects" fill="#3153a3" minPointSize={1}>
-              <LabelList dataKey="name" content={renderCustomizedLabel} />
-            </Bar>
-            <Bar dataKey="closed_projects" fill="#2ab544" minPointSize={10} />
-          </BarChart>
-        </ResponsiveContainer>
+      <div className="absolute top-28 px-5">
+        <div className="horizontal-overview flex">
+          <OverviewCard
+            cardTitle="Total Project"
+            cardValue={card.total_project_count}
+          />
+          <OverviewCard
+            cardTitle="closed"
+            cardValue={card.project_status_count.closed}
+          />
+          <OverviewCard
+            cardTitle="Running"
+            cardValue={card.project_status_count.Running}
+          />
+          <OverviewCard
+            cardTitle="Clouser Delay"
+            cardValue={card.project_status_count.Canceled}
+          />
+          <OverviewCard
+            cardTitle="Cancelled"
+            cardValue={card.project_status_count.Canceled}
+          />
+        </div>
+        <p className="department-wise-to m-3">
+          Department wise- Total & Closed
+        </p>
+        <div className="graph-box p-6">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              width={150}
+              height={130}
+              data={card.deparmentwise_project_status}
+              margin={{
+                top: 35,
+                right: 30,
+              }}
+            >
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Bar dataKey="total_projects" fill="#3153a3" minPointSize={1}>
+                <LabelList dataKey="name" content={renderCustomizedLabel} />
+              </Bar>
+              <Bar dataKey="closed_projects" fill="#2ab544" minPointSize={10} />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
     </DashboardNavWrapper>
   );
