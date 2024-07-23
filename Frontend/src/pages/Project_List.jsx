@@ -120,7 +120,7 @@ function Project_List() {
   };
   return (
     <DashboardNavWrapper>
-      <div className="list-table flex justify-center absolute top-32 px-7 ">
+      <div className="list-table flex justify-center absolute top-32">
         <div className="white-box p-8">
           <div className="flex justify-between px-4">
             <Search
@@ -246,7 +246,7 @@ function Project_List() {
         </div>
       </div>
 
-      <div className="card flex flex-col col-flex justify-center absolute top-32 px-7 ">
+      <div className="card flex flex-col col-flex justify-center absolute top-32">
         <div className=" pt-12 pb-2">
           <div className="flex justify-between">
             <Search
@@ -283,8 +283,9 @@ function Project_List() {
             </Box>
           </div>
         </div>
+        <div className="mb-20">
         {project_list.map((item) => (
-          <Box key={item._id} className="card-list my-3">
+          <Box key={item._id} className="card-list my-6">
             <Box className=" flex flex-col ">
               <span className=" flex mb-3 ">
                 <span className=" flex-col">
@@ -351,6 +352,7 @@ function Project_List() {
             />
           </Box>
         ))}
+      </div>
       </div>
     </DashboardNavWrapper>
   );

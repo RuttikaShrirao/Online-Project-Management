@@ -55,7 +55,7 @@ function Login() {
           <p className="my-4">Online Project Management</p>
         </div>
 
-        <div className="login-form  flex-col justify-center items-center absolute top-48">
+        <div className="login-form  flex-col justify-center items-center">
           <p className="login-to-get-started ">Login to get started</p>
           <div className="">
             <p
@@ -92,6 +92,7 @@ function Login() {
             >
               Password
             </p>
+            <div className="relatve">
             <input
               className={` ${
                 errorMsg
@@ -104,6 +105,7 @@ function Login() {
               }
             />
             <img src={hide_password} className="hide-password " />
+</div>
             <p
               className={`email ${
                 errorMsg ? "text-red-500" : "text-slate-400"

@@ -101,7 +101,7 @@ function CreateProject() {
 
   return (
     <DashboardNavWrapper>
-      <div className="create-proj px-5">
+      <div className="create-proj">
         <div className="white-box">
           <Box
             sx={{

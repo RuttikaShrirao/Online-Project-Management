@@ -61,17 +61,17 @@ function DashboardNavWrapper(props) {
             />
           </Link>
 
-          <img onClick={logoutHandler} src={desk_Logout} alt="Image" />
+          <img onClick={logoutHandler} src={desk_Logout} alt="Image"  className="absolute bottom-12"/>
         </div>
       </div>
-      <div className="topbar">
-        <div className=" flex justify-between p-9 ">
+      <div className="topbar  flex justify-between">
+        {/* <div className="flex justify-center"> */}
           <h1 className="currnt-page-text ">
             {" "}
             {page_title[window.location.pathname]}
           </h1>
 
-          <img src={Logo} alt="logo" className="h-12 dash_logo" />
+          <img src={Logo} alt="logo" className="h-12 dash_logo " />
 
           <img
             onClick={logoutHandler}
@@ -79,9 +79,9 @@ function DashboardNavWrapper(props) {
             className="mob-logout"
             alt="Image"
           />
-        </div>
+        {/* </div> */}
         {props.children}
-      </div>
+  
       <div className="mob_nav">
         <div className="flex justify-around">
           <Link to="/dashboard">
@@ -116,6 +116,7 @@ function DashboardNavWrapper(props) {
             />
           </Link>
         </div>
+      </div>
       </div>
     </div>
   );

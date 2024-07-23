@@ -24,6 +24,8 @@ height: 3rem;
   border-radius: 10px;
   background-color: #FFFFFF;
   box-shadow: 0 7px 18px 0 rgba(2,118,179,0.13);
+  position: absolute;
+  top: 12rem;
   padding: 0rem 2rem;
   display: flex;
   justify-content: space-evenly;
@@ -80,7 +82,7 @@ height: 3rem;
   height: 30px;
   width: 24px;
   position: absolute;
-  right: 3rem;
+  right: 3rem; 
   bottom: 9rem;
 }
 
@@ -124,14 +126,15 @@ height: 3rem;
 }
 
 /* ............................................. */
-.main-dashboard{
-  border: 9px solid red
-}
 
+.dash_logo{
+/* position: absolute; */
+/* top: 20rem; */
+}
 .sidebar{
   background-color: white;
-  height: 768px;
-  width: 58px;
+  height: 100vh;
+  width: 3.5rem;
 }
 
 .mob_nav{
@@ -139,23 +142,31 @@ height: 3rem;
 }
 
 .mob-logout{
-  height: 20px;
-  width: 20px;
+/* display: none; */
+visibility: hidden;
 }
 
 .topbar{
   background-image: url('./assets/Header-bg.svg');
-  height: 150px;
-  width: 1308px;
+  flex: 1;
   background-repeat: no-repeat;
-  display: flex;
+  height: 9rem;
+  align-items: baseline;
+  padding: 0rem 1rem;
 }
 
 /* dashboard */
+.dashboard{
+ position: absolute;
+ top: 6rem;
+ padding: 1rem;
+ width: -webkit-fill-available;
+}
+  
 
 .overviewcard{
   height: 5rem;
-  width: 13.6rem;
+  width: 10rem;
   border-radius: 4px;
   background-color: #FFFFFF;
   box-shadow: 0 4px 21px 0 rgba(173,182,217,0.27);
@@ -173,7 +184,6 @@ height: 3rem;
 
 .proj-num{
   height: 54px;
-  width: 102px;
   color: #474D52;
   font-family: "Nunito Sans";
   font-size: 40px;
@@ -184,8 +194,8 @@ height: 3rem;
 }
 
 .department-wise-to{
-   height: 27px;
-  width: 491px;
+   /* height: 27px; */
+  /* width: 491px; */
   color: #010202;
   font-family: "Nunito Sans";
   font-size: 20px;
@@ -240,12 +250,11 @@ float:right
       padding: 2px;
     }
     .card-list{
-      /* height: 257px;
-      width: 328px; */
       border-radius: 10px;
       background-color: #FFFFFF;
       box-shadow: 0 7px 18px 0 rgba(2,118,179,0.13);
     padding: 1rem;
+    width: fit-content;
     }
 
     .card-list h1{
@@ -281,14 +290,17 @@ float:right
   white-space: nowrap;
 }
 
-      .horizontal-overview{
+/* .overviewcard{
+  width: 10rem;
+} */
+       /* .horizontal-overview{
         margin: 4px, 4px;
         padding: 4px;
-        width: 77%;
+        width: 95%;
         overflow-x: auto;
         overflow-y: hidden;
         white-space: nowrap;
-      }
+      }  */
     }
 
     @media (min-width:768px) {
@@ -304,8 +316,13 @@ float:right
      padding-right: 1rem;
       }
       .horizontal-overview{
-        width: 56%;
-      }
+        margin: 4px, 4px;
+        padding: 4px;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+      } 
      }    
 
 @media (max-width:600px) {
@@ -324,16 +341,23 @@ float:right
   .dash_logo{
     height: 53px;
   width: 60px;
-    display: none;
+  visibility: hidden;
   }
   .mob-logout{
-    height: 20px;
-    width: 20px;
+    visibility: visible;
+    height: 1.5rem;
+    width: 1.5rem;
   }
+
+  .graph-box {
+    width: auto;
+  }
+
  .white-box .mob-proj-save-btn{
 display: block;
 margin-bottom: 3rem;
   }
+
   .white-box .proj-save-btn{
     border-radius: 20px;
     display: none;
@@ -352,12 +376,15 @@ margin-bottom: 3rem;
     display: none;
   }
   .mob_nav {
+    height: 56px;
     width: 100vw;
     display: block;
-    background-color: white;
     padding: 1rem;
     position: fixed;
     bottom: 0rem;
+    border-radius: 30px 30px 0 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 11px 0 rgba(2,118,179,0.24);
 }
 }
 
@@ -365,8 +392,12 @@ margin-bottom: 3rem;
 @media (max-width:425px) {
   .login-form {
     position: absolute;
-    top: 22rem;
+    top: 17.1rem;
   align-items: start;
+  width: auto;
+  }
+  .rectangle {
+    width: 280px;
   }
 
   .btn{
@@ -392,18 +423,17 @@ margin-bottom: 3rem;
     height: 100vh;
   }
 
-.horizontal-overview{
+/* .horizontal-overview{
   margin: 4px, 4px;
   padding: 4px;
-  /* width:64%; */
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
-}
+} */
 
 .overviewcard{
   height: 75px;
-  width: 110px;
+  /* width: 110px; */
   border-radius: 4px;
   background-color: #FFFFFF;
   box-shadow: 0 7px 18px 0 rgba(2,118,179,0.13);
@@ -417,5 +447,23 @@ margin-bottom: 3rem;
 }
 .invalid-credentials{
   bottom: 2rem;
+  }
+}
+
+@media (min-width:1200px) {
+
+  .login-form{
+    position: absolute;
+    top: 16rem;
+  }
+  .topbar{
+    background-size: cover;
+  }
+  /* .sidebar {
+    height: 100vh;
+  } */
+
+  .overviewcard{
+    width: 15rem;
   }
 }

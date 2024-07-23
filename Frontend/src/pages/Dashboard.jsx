@@ -52,7 +52,7 @@ function Dashboard() {
 
   return (
     <DashboardNavWrapper>
-      <div className="absolute top-28 px-5">
+      <div className="dashboard ">
         <div className="horizontal-overview flex">
           <OverviewCard
             cardTitle="Total Project"
@@ -78,15 +78,16 @@ function Dashboard() {
         <p className="department-wise-to m-3">
           Department wise- Total & Closed
         </p>
-        <div className="graph-box p-6">
+        <div className="graph-box p-4 mb-14">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               width={150}
               height={130}
               data={card.deparmentwise_project_status}
               margin={{
-                top: 35,
-                right: 30,
+                top: 15,
+                right: 10,
+                left:0
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
@@ -95,7 +96,7 @@ function Dashboard() {
               <Tooltip />
               <Legend />
               <Bar dataKey="total_projects" fill="#3153a3" minPointSize={1}>
-                <LabelList dataKey="name" content={renderCustomizedLabel} />
+                {/* <LabelList dataKey="name" content={renderCustomizedLabel} /> */}
               </Bar>
               <Bar dataKey="closed_projects" fill="#2ab544" minPointSize={10} />
             </BarChart>
