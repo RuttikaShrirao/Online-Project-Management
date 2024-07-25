@@ -20,6 +20,15 @@ Welcome to the Online Project Management system. This application helps manage p
 - **Create Project**:
   Create new projects and add them to the system.
 
+### Deplyed website URL
+
+**Open your browser and go to**: https://online-project-management.netlify.app
+
+- **Login Credentials**:
+
+Email - ruttikashrirao@gmail.com
+Password - mypass123
+
 ### Getting Started
 
 - **Installation**:
@@ -38,7 +47,7 @@ npm start
 
  yarn start
 
-- **Open your browser and go to**: http://localhost:7000.
+- **Open your browser and go to**: https://online-project-management.netlify.app
 
 - **Login Credentials**:
 

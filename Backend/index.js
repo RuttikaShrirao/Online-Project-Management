@@ -67,5 +67,5 @@ app.use("/api/update-project-status", ProjectsRoute);
 app.use("/api/dash", dashboardRoute);
 
 connectdb().then(() => {
-  app.listen(process.env.port || 7000, () => {});
+  app.listen(process.env.port || 8000, () => {});
 });

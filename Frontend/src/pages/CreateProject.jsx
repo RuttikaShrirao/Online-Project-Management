@@ -66,7 +66,7 @@ function CreateProject() {
       ) {
         setfieldErr(true);
       } else {
-        fetch(`http://localhost:7000/api/create_project`, {
+        fetch(`https://online-project-management-back.onrender.com/api/create_project`, {
           method: "POST",
           body: JSON.stringify({
             project_theme: inputField.theme,

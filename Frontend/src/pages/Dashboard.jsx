@@ -43,7 +43,7 @@ function Dashboard() {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:7000/api/dash`)
+    fetch(`https://online-project-management-back.onrender.com/api/dash`)
       .then((res) => res.json())
       .then((data) => {
         setCard(data.data);

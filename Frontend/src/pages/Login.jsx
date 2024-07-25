@@ -24,7 +24,7 @@ function Login() {
     if (formState.email.length == 0 || formState.password == 0) {
       setErrorMsg(true);
     } else {
-      fetch(`http://localhost:7000/api/login`, {
+      fetch(`https://online-project-management-back.onrender.com/api/login`, {
         method: "POST",
         body: JSON.stringify({
           email: formState.email,

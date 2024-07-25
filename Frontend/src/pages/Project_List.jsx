@@ -75,7 +75,7 @@ function Project_List() {
   const handleProjectStatusChange = (project_id, pstatus) => {
     if (pstatus == "closed") {
     } else {
-      fetch(`http://localhost:7000/api/update-project-status/${project_id}`, {
+      fetch(`https://online-project-management-back.onrender.com/api/update-project-status/${project_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: pstatus }),
@@ -91,7 +91,7 @@ function Project_List() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:7000/api/project_list`)
+    fetch(`https://online-project-management-back.onrender.com/api/project_list`)
       .then((res) => res.json())
       .then((data) => {
         setProject_list(data.data);
