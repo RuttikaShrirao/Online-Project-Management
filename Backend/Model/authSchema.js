@@ -9,6 +9,6 @@ const authSchema = new mongoose.Schema({
   },
 });
 
-const auth = mongoose.model("auth", authSchema);
+const auth = mongoose.model("Auth", authSchema);
 
 module.exports = { auth };
