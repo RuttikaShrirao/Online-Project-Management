@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// const Dashboard_logo =require("../assets/Dashboard-unactive.svg")
 import Dashboard_logo from "../assets/Dashboard-unactive.svg";
 import Dashboard_logoActive from "../assets/Dashboard-active.svg";
 import create_project_active from "../assets/create-project-active.svg";
@@ -8,8 +9,19 @@ import list_logo from "../assets/Project-list-unactive.svg";
 import create_project from "../assets/create-project-unactive.svg";
 import Logout from "../assets/mob_Logout.svg";
 import desk_Logout from "../assets/Logout.svg";
-import Logo from "../assets/Logo.svg";
+import Logo from "../assets/Logo.svg" 
 import { useNavigate } from "react-router-dom";
+
+// declare module '*.svg' {
+//   import * as React from 'react';
+
+//    const ReactComponent: React.FunctionComponent<React.SVGProps<
+//     SVGSVGElement
+//   > & { title?: string }>;
+
+//   const src: string;
+//   export default src;
+// }
 
 function DashboardNavWrapper(props) {
   const navigate = useNavigate();

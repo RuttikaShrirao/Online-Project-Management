@@ -4,6 +4,7 @@ const {project} =require("../Model/create_ProjectSchema")
 const dashboardRoute = express.Router()
 
 dashboardRoute.get('/',async(req, res) => {
+  console.log("get request")
     // const projectdata =await project.find()
     response_data = {}
 

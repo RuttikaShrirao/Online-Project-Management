@@ -9,8 +9,21 @@ import DashboardNavWrapper from "../components/DashboardNavWrapper";
 import { useNavigate } from "react-router-dom";
 import SelectInp from "../components/SelectInp";
 
-function CreateProject() {
-  const [inputField, setInputField] = React.useState({
+interface handleInput{
+  theme: string,
+  Reason: string,
+  Type: string,
+  Division: string,
+  start_date: string,
+  Category: string,
+  Priority: string,
+  Department: string,
+  Location: string,
+}
+
+function CreateProject(){
+  const [inputField, setInputField] = React.useState<handleInput> ({
+    
     theme: "",
     Reason: "",
     Type: "",
@@ -56,13 +69,13 @@ function CreateProject() {
       setError(true);
     } else {
       if (
-        inputField.Reason == 0 &&
-        inputField.Type == 0 &&
-        inputField.Division == 0 &&
-        inputField.Category == 0 &&
-        inputField.Priority == 0 &&
-        inputField.Department == 0 &&
-        inputField.Location == 0
+        inputField.Reason.length == 0 &&
+        inputField.Type.length  == 0 &&
+        inputField.Division.length  == 0 &&
+        inputField.Category.length  == 0 &&
+        inputField.Priority.length  == 0 &&
+        inputField.Department.length  == 0 &&
+        inputField.Location.length  == 0
       ) {
         setfieldErr(true);
       } else {
@@ -192,7 +205,7 @@ function CreateProject() {
               placeholder="Medium"
               item={[{ text: "High" }, { text: "Medium" }, { text: "Low" }]}
             />
-            <Box sx={{ minWidth: 120, pt: 2 }}>
+            {/* <Box sx={{ minWidth: 120, pt: 2 }}>
               <p className="create-sel-label">End Date as per Plan</p>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
@@ -200,7 +213,7 @@ function CreateProject() {
                   onChange={(newDate) => set_Date(newDate).toLocaleDateString()}
                 />
               </LocalizationProvider>
-            </Box>
+            </Box> */}
             <SelectInp
               setInputField={setInputField}
               inputField={inputField}

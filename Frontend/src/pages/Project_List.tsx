@@ -14,6 +14,7 @@ import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import usePagination from "@mui/material/usePagination";
+import { Interface } from "readline";
 // import { styled } from '@mui/material/styles';
 
 const List = styled("ul")({
@@ -65,7 +66,20 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-// table
+
+// Interface typescript
+interface ResultItem {
+  _id: string;
+  project_theme:string,
+  reason:string,   
+type    :string,  
+division:string,  
+category:string,  
+priority:string,  
+department:string,
+location  :string,
+status:string,
+}
 
 function Project_List() {
   const [sort, setSort] = React.useState("");
@@ -73,8 +87,9 @@ function Project_List() {
   const [record, setRecord] = React.useState(false);
 
   const handleProjectStatusChange = (project_id, pstatus) => {
-    if (pstatus == "closed") {
-    } else {
+    // if (pstatus == "closed") {
+    // }
+    //  else {
       fetch(`https://online-project-management-back.onrender.com/api/update-project-status/${project_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -87,7 +102,7 @@ function Project_List() {
           );
           setProject_list(updated_proj_lst);
         });
-    }
+    // }
   };
 
   useEffect(() => {
@@ -102,7 +117,7 @@ function Project_List() {
   const handleChange = (event) => {
     setSort(event.target.value);
     setProject_list(
-      project_list.filter((f) => f.priority == event.target.value)
+      project_list.filter((f:ResultItem) => f.priority == event.target.value)
     );
   };
 
@@ -112,7 +127,7 @@ function Project_List() {
     } else {
       setProject_list(
         project_list.filter(
-          (f) => f.project_theme.toLowerCase().includes(event.target.value)
+          (f:ResultItem) => f.project_theme.toLowerCase().includes(event.target.value)
           // f.status.toLowerCase().includes(event.target.value)
         )
       );
@@ -191,7 +206,7 @@ function Project_List() {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {project_list.map((row) => (
+                {project_list.map((row:ResultItem) => (
                   <TableRow
                     key={row._id}
                     sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -284,7 +299,7 @@ function Project_List() {
           </div>
         </div>
         <div className="mb-20">
-        {project_list.map((item) => (
+        {project_list.map((item:ResultItem) => (
           <Box key={item._id} className="card-list my-6">
             <Box className=" flex flex-col ">
               <span className=" flex mb-3 ">

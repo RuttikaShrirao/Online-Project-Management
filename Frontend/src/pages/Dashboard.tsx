@@ -16,6 +16,21 @@ import {
 import DashboardNavWrapper from "../components/DashboardNavWrapper";
 import OverviewCard from "../components/OverviewCard";
 
+interface apiResponse{
+  project_status_count: {
+    Canceled?:number,
+    Running?:number,
+    closed?:number
+  } ,
+  deparmentwise_project_status: {
+    name?: string,
+     total_projects?: number, 
+     closed_projects?: number
+  } | any ,
+  total_project_count?:number,
+
+}
+
 const renderCustomizedLabel = (props) => {
   const { x, y, width, height, value } = props;
   const radius = 10;
@@ -37,15 +52,17 @@ const renderCustomizedLabel = (props) => {
 };
 
 function Dashboard() {
-  const [card, setCard] = useState({
-    project_status_count: {},
-    deparmentwise_project_status: {},
-  });
+  const [card, setCard] = useState<apiResponse>({
+project_status_count:{},
+deparmentwise_project_status:{}
+
+});
 
   useEffect(() => {
     fetch(`https://online-project-management-back.onrender.com/api/dash`)
       .then((res) => res.json())
       .then((data) => {
+
         setCard(data.data);
       });
   }, []);
@@ -66,10 +83,10 @@ function Dashboard() {
             cardTitle="Running"
             cardValue={card.project_status_count.Running}
           />
-          <OverviewCard
+          {/* <OverviewCard
             cardTitle="Clouser Delay"
             cardValue={card.project_status_count.Canceled}
-          />
+          /> */}
           <OverviewCard
             cardTitle="Cancelled"
             cardValue={card.project_status_count.Canceled}

@@ -5,10 +5,15 @@ import hide_password from "../assets/hide-password.svg";
 import { useNavigate } from "react-router-dom";
 import "../App.css";
 
+interface formData{
+  email: string,
+    password: string
+}
+
 function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
 
-  const [formState, setFormState] = React.useState({
+  const [formState, setFormState] = React.useState<formData>({
     email: "",
     password: "",
   });
@@ -21,7 +26,7 @@ function Login() {
   const LoginHandler = (event) => {
     event.preventDefault();
 
-    if (formState.email.length == 0 || formState.password == 0) {
+    if (formState.email.length == 0 || formState.password.length == 0) {
       setErrorMsg(true);
     } else {
       fetch(`https://online-project-management-back.onrender.com/api/login`, {
@@ -81,7 +86,7 @@ function Login() {
                 errorMsg ? "text-red-500" : "text-slate-400"
               }`}
             >
-              {errorMsg && formState.email == 0 && "Email is required"}
+              {errorMsg && formState.email.length == 0 && "Email is required"}
             </p>
           </div>
           <div>
@@ -111,7 +116,7 @@ function Login() {
                 errorMsg ? "text-red-500" : "text-slate-400"
               }`}
             >
-              {errorMsg && formState.password == 0 && "Password is required"}
+              {errorMsg && formState.password.length == 0 && "Password is required"}
             </p>
             <p className="forgot-password">Forgot password</p>
             <p className="invalid-credentials invalid-desk">{errorMsg}</p>
